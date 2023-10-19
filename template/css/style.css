@@ -1,0 +1,159 @@
+/*CSS STYLING INDEX*/
+body{
+	margin: 0px;
+	padding: 0px;
+	background-color: #e1f5fe;
+	height: 100%;
+	width: 100%;
+}
+
+.navbar{		
+	width: 100%;
+	height: 50px;
+	padding: 10px;
+	background-color: #1e88e5;
+	box-shadow: 1px 2px 6px white !important;
+	position: fixed-top;
+}
+
+.nav .nav-item{
+	display: inline;
+	list-style: none;
+	margin-left: 2%;
+	background-color: #ffc400;
+	padding: 10px;
+	border-radius: 15px;
+}
+
+.nav .nav-item a{
+	text-decoration: none;
+	color: white;
+}
+
+.nav-item:hover{
+	background-color: #0d47a1;
+}
+
+.content{
+	height: auto;
+	background-color: #00e676;
+	text-align: center;
+	padding:20px;
+	color: #455a64;
+}
+
+.content h1{
+	font-size: 50px;
+	text-shadow: 2px 2px 4px white;
+}
+
+.content p{
+	font-size: 20px;
+	background-color: #0d47a1;
+	color: white;
+	width: 50%;
+	padding: 5px;
+	margin: auto;
+	border-radius: 10px;
+}
+.footer{
+	width: 100%;
+	height: auto;
+	padding: 10px;
+	bottom: 0px;
+	position: relative;
+	background-color: #1e88e5;
+	text-align: center;
+	color:white;
+}
+
+/*STYLING DAFTAR*/
+.content-auth{
+	height: auto;
+	border: 5px solid #ffc400;
+	border-radius: 10px;
+	text-align: center;
+	padding:20px;
+	width: 30%;
+	position: absolute;
+	top:200px;
+	left: 450px;
+	color: white;
+}
+
+.content-auth h1{
+	font-size: 30px;
+	background-color: #0d47a1;
+	color: #ffc400;
+	padding: 10px;
+}
+
+		
+.tauth{
+	width: 100%;
+}
+
+.tauth th{
+	font-size: 22px;
+}
+.tauth td .input{
+	width: 200px;
+	height: 20px;
+	border: 3px solid #0d47a1;
+	border-radius: 10px;
+}
+.tauth td .input:hover{
+	width: 200px;
+	height: 20px;
+	border: 3px solid #ffc400;
+	border-radius: 10px;
+}
+
+.btn-auth{
+	background-color: #0d47a1;
+	color: #ffc400;
+	padding: 5px;
+	border-radius: 10px;
+	font-size: 22px;
+}
+
+.form-input{
+	width: 300px;
+	height: 20px;
+	border: 3px solid #0d47a1;
+	border-radius: 10px;
+	padding: 5px;
+}
+
+.form-input-select{
+	width: 300px;
+	height: 30px;
+	border: 5px solid #0d47a1;
+	border-radius: 10px;
+	padding: 5px;
+}
+
+.form-input-area{
+	width: 300px;
+	height: 60px;
+	border: 3px solid #0d47a1;
+	border-radius: 10px;
+	padding: 5px;
+}
+
+.btn{
+	width: 100px;
+	height: 30px;
+	background-color: #0d47a1;
+	color: white;
+	border:0px;
+	border-radius:10px;
+}
+.btn:hover{
+	width: 100px;
+	height: 30px;
+	background-color:  #ffc400;
+	color: white;
+	border:0px;
+	border-radius:10px;
+}
