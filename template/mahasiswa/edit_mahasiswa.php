@@ -11,6 +11,8 @@ $nim = $_GET["nim"];
 		WHERE nim = '$nim'")[0];
 
 if (isset($_POST["btn-simpan"])) {
+
+	// var_dump($_POST);
 	if (edit_mhs($_POST) > 0) {
 		echo "<script>
 			alert('Data Berhasil Diedit!!');
@@ -46,17 +48,10 @@ if(isset($_POST["btn-batal"])) {
 	<div class="body-mhs" style="margin-top: 10px;width: 50%;margin: auto;padding:20px;border: 3px solid #ffc400;">
 
 		<form name="edit_mhs" class="edit_mhs" action="" method="post">
-		<input class="form-input" type="hidden" name="nim_lama">	
+		<input class="form-input" type="hidden" name="nim" value="<?= @$mhs["nim"];?>">	
 			
 			<table cellspacing="0" cellpadding="20" style="width: 100%;">
-					<tr>
-						<td>
-							<label for="nim">NIM :</label>
-						</td>
-						<td>
-							<input class="form-input" type="number" name="nim" id="nim" require value="<?= @$mhs["nim"];?>">
-						</td>
-					</tr>
+					<h1><?= $mhs['nim'] ?> </h1>
 					<tr>
 						<td>
 							<label for="nama_lengkap">NAMA LENGKAP :</label>

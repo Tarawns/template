@@ -46,8 +46,6 @@ function read_mhs($query) {
 // Edit
 function edit_mhs($data) {
     global $conn;
-
-    $nim_lama       = htmlspecialchars($data["nim_lama"]);
     $nim            = htmlspecialchars($data["nim"]);
     $nama_lengkap   = htmlspecialchars($data["nama_lengkap"]);
     $jurusan        = htmlspecialchars($data["jurusan"]);
@@ -59,7 +57,6 @@ function edit_mhs($data) {
     $email          = htmlspecialchars($data["email"]);
 
     $query = "UPDATE t_mahasiswa SET
-                nim             = '$nim',
                 nama_lengkap    = '$nama_lengkap',
                 jurusan         = '$jurusan',
                 tmpt_lahir      = '$tmpt_lahir',
@@ -68,12 +65,11 @@ function edit_mhs($data) {
                 alamat          = '$alamat',
                 no_hp           = '$no_hp',
                 email           = '$email'
-                WHERE nim  = $nim_lama
-                        ";
+                WHERE nim  = '$nim'";
 
     mysqli_query($conn, $query);
 
-    return mysqli_afffected_rows($conn);
+    return mysqli_affected_rows($conn);
 }
 
 // cari data
