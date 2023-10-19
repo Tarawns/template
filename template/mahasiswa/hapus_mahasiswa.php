@@ -3,6 +3,7 @@ session_start();
 if (!isset($_SESSION['login'])) {
     header("Location:../login.php");
 }
+
 require "function_mhs.php";
 $nim = $_GET['nim'];
 
@@ -17,4 +18,5 @@ $nim = $_GET['nim'];
             window.location.href = 'v_mahasiswa.php';
                 </script>";
     }
+
 ?>

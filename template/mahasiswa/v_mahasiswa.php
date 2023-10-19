@@ -4,6 +4,7 @@ if (!isset($_SESSION['login'])) {
 	header("Location: ../login.php");
 	exit;
 }
+
 require "function_mhs.php";
 $mahasiswa = read_mhs("SELECT * FROM t_mahasiswa ORDER BY nim ASC");
 
@@ -14,7 +15,6 @@ $halamanAktif = (isset ($_GET["halaman"]) ) ? $_GET["halaman"] : 1;
 $awalData = ($jumlahDataPerhalaman * $halamanAktif) - $jumlahDataPerhalaman;
 
 
-
 $mahasiswa = read_mhs("SELECT * FROM t_mahasiswa LIMIT $awalData,               $jumlahDataPerhalaman");
 
 if (isset ($_POST["cari"]) ) {
@@ -22,7 +22,6 @@ if (isset ($_POST["cari"]) ) {
 }
 
 ?>
-
 
 <!DOCTYPE html>
 <html>
@@ -36,19 +35,19 @@ if (isset ($_POST["cari"]) ) {
 			<li class="nav-item"><a href="../index.php">Home</a></li>
 			<li class="nav-item"><a href="v_mahasiswa.php">Mahasiswa</a></li>
 			<li class="nav-item"><a href="../logout.php">Logout</a></li>
-
 		</ul>
 	</div>
 	
 	<div class="row-mhs" style="position: relative;top: 10px;left:10px;box-shadow: 0px 1px 4px black;padding:20px;">
-		<div class="header-mhs">
-			<h1>DATA MAHASISWA</h1>
 
-		<div class="btn-mhs">
+		<div class="header-mhs">
+			<center><h1>DATA MAHASISWA</h1></center>
+
+			<div class="btn-mhs">
 				<a href="tambah_mahasiswa.php">TAMBAH DATA MAHASISWA</a>
 			</div>
 		</div>
-		
+
 		<br>
 
 		<!-- Cari Mahasiswa-->
@@ -57,28 +56,9 @@ if (isset ($_POST["cari"]) ) {
         <button type="submit" name="cari">Cari!</button>
     	</form>
 
-		<!-- navigasi/pagination -->
-		<?php if($halamanAktif > 1) : ?>
-    <a href="?halaman=<?=$halamanAktif - 1; ?>">&laquo;</a>
-    <?php endif; ?>
-
-
-    <?php for($i = 1; $i <= $jumlahHalaman; $i++ ) : ?>
-        <?php if($i == $halamanAktif) : ?>
-        <a href="?halaman=<?= $i; ?>" style="font-weight: bold; color: red;">
-		<?= $i; ?></a>
-        <?php else : ?>
-            <a href="?halaman=<?= $i; ?>"><?= $i; ?></a>
-        <?php endif; ?>
-    <?php endfor; ?>
-
-    <?php if($halamanAktif < $jumlahHalaman) : ?>
-    <a href="?halaman=<?=$halamanAktif + 1; ?>">&raquo;</a>
-    <?php endif; ?>	
-
-
 		<div class="body-mhs" style="margin-top: 10px;">
-			<table cellspacing="0" cellpadding="20" border="1px" style="width: 100%;">
+			<table cellspacing="0" cellpadding="20" border="1px" 
+			style="width: 100%;">
 				<tr>
 					<th>NO</th>
 					<th>NIM</th>
@@ -99,7 +79,9 @@ if (isset ($_POST["cari"]) ) {
 						<td><?= $mhs['nim']; ?></td>
 						<td><?= $mhs['nama_lengkap']; ?></td>
 						<td><?= $mhs['jurusan']; ?></td>
-						<td><?= $mhs['tmpt_lahir']. ",".date("d-m-Y",strtotime($mhs['tgl_lahir'])); ?></td>
+						<td>
+							<?= $mhs['tmpt_lahir']. ",".date("d-m-Y",strtotime($mhs['tgl_lahir'])); ?>
+						</td>
 						<td><?= $mhs['jenis_kelamin']; ?></td>
 						<td><?= $mhs['alamat']; ?></td>
 						<td><?= $mhs['no_hp']; ?></td>
@@ -116,7 +98,28 @@ if (isset ($_POST["cari"]) ) {
 				<?php endforeach; ?>
 			</table>
 		</div>
-	</div>
+	
+	<!-- navigasi/pagination -->
+	<center><h1>
+		<?php if($halamanAktif > 1) : ?>
+    	<a href="?halaman=<?=$halamanAktif - 1; ?>">&laquo;</a>
+    	<?php endif; ?>
+
+    	<?php for($i = 1; $i <= $jumlahHalaman; $i++ ) : ?>
+        	<?php if($i == $halamanAktif) : ?>
+        	<a href="?halaman=<?= $i; ?>" 
+			style="font-weight: bold; color: red;">
+			<?= $i; ?></a>
+        	<?php else : ?>
+            	<a href="?halaman=<?= $i; ?>"><?= $i; ?></a>
+        	<?php endif; ?>
+    	<?php endfor; ?>
+
+    	<?php if($halamanAktif < $jumlahHalaman) : ?>
+		<a href="?halaman=<?=$halamanAktif + 1; ?>">&raquo;</a>
+    	<?php endif; ?>
+	</h1></center>
+</div>
 
 </body>
 </html>

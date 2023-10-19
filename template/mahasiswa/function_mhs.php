@@ -26,6 +26,7 @@ function tambah_mhs($data) {
             </script>";
         exit;
     }
+
     $query = "INSERT INTO t_mahasiswa VALUES 
                 ('$nim', '$nama_lengkap', '$jurusan', '$tmpt_lahir', '$tgl_lahir', '$jenis_kelamin', '$alamat','$no_hp', '$email')";
 
@@ -33,6 +34,7 @@ function tambah_mhs($data) {
     return mysqli_affected_rows($conn);
 }
 
+//query
 function read_mhs($query) {
     global $conn;
     $result = mysqli_query($conn,$query);
@@ -73,7 +75,6 @@ function edit_mhs($data) {
 }
 
 // cari data
-// nama LIKE '%$keyword%' => mencari data dengan fleksibel
 function cari($keyword) {
     $query = "SELECT * FROM t_mahasiswa WHERE
                 nim           LIKE '%$keyword%' OR
@@ -95,6 +96,5 @@ function hapus_mhs($nim) {
     mysqli_query($conn, "DELETE FROM t_mahasiswa WHERE nim = '$nim' ");
     return mysqli_affected_rows($conn);
 }
-
 
 ?>

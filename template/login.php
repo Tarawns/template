@@ -23,6 +23,7 @@ if (isset($_POST['btn-login'])) {
 	}
 	$error = true;
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -45,21 +46,33 @@ if (isset($_POST['btn-login'])) {
 		<?php if (isset($error)) :?>
 			<p style="color: red; font-style: italic;"> Username / Password Salah!</p>
 		<?php endif; ?>
+
 		<form action="" method="POST">
 			<table class="tauth" cellspacing="0" cellpadding="10">
 				<tr>
 					<th>Username</th>
-					<td><input type="text" class="input" name="username" id="username"></td>
+					<td>
+						<input type="text" class="input" name="username" id="username">
+					</td>
 				</tr>
 				<tr>
 					<th>Password</th>
-					<td><input type="password" class="input" name="password" id="password"></td>
+					<td>
+						<input type="password" class="input" name="password" id="password">
+					</td>
 				</tr>
 				<tr>
-					<th colspan="2" style="text-align: center;"><button type="submit" class="btn-auth" name="btn-login" id="btn-login">LOGIN</button></th>
+					<th colspan="2" style="text-align: center;">
+						<button type="submit" class="btn-auth" name="btn-login" id="btn-login">
+							LOGIN
+						</button>
+					</th>
 				</tr>
 				<tr>
-					<th colspan="2" style="text-align: center;">Belum memiliki akun ? <a href="registrasi.php">Registrasi</a></th>
+					<th colspan="2" style="text-align: center;">
+						Belum memiliki akun ? 
+						<a href="registrasi.php">Registrasi</a>
+					</th>
 				</tr>
 			</table>
 		</form>
